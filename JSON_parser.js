@@ -29,14 +29,14 @@ page.on("response", async (response) => {
   }
 });
 
-await page.goto("https://open.spotify.com/playlist/2sOMIgioNPngXojcOuR4tn", {
+await page.goto("https://open.spotify.com/playlist/4z5whwZPQuMotubMwwlsLB", {
   waitUntil: "networkidle2",
   timeout: 21000,
 });
 const realdeal = JSON.stringify(Collected_json[0]);
 console.log(realdeal);
 
-const formodule = await `module.export DataPlaylist = ${realdeal}`;
+const formodule = await `module.export  = ${realdeal}`;
 
 fs.writeFileSync("Parses_json_data.js", formodule, "utf8", (e) => {
   if (e) {
@@ -45,3 +45,5 @@ fs.writeFileSync("Parses_json_data.js", formodule, "utf8", (e) => {
     console.log("made the file");
   }
 });
+
+await browser.close();
